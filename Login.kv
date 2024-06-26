@@ -2,20 +2,62 @@
 
 <Login>:
     MDLabel:
-        text: 'Login Screen'
-        halign: 'center'
-        theme_text_color: 'Primary'
-        font_style: 'H5'
+        text: "Log In"
+        font_size: "24dp"
+        halign: "center"
+        color: '#00FF7D'
+        pos_hint: {"center_y":.85}
     MDTextField:
-        hint_text: 'Username'
-        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-        size_hint_x: None
-        width: 200
+        id: usrnm
+        hint_text: "Username"
+        icon_left: 'account'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.65}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
     MDTextField:
-        hint_text: 'Password'
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-        size_hint_x: None
-        width: 200
+        id: psswrd
+        hint_text: "Password"
+        password: True
+        icon_left: 'eye-off'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.55}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
+    BoxLayout:
+        size_hint: .85, None
+        height: "30dp"
+        pos_hint: {'center_x':.95,"center_y":.45}
+        spacing: "5dp"
+        MDCheckbox:
+            id: cb
+            size_hint: None, None
+            width: "30dp"
+            height: "30dp"
+            pos_hint: {'center_x':.5,"center_y":.95}
+            on_press:
+                psswrd.password = False if psswrd.password == True else True
+                psswrd.icon_left = "eye" if psswrd.icon_left == "eye-off" else "eye-off"
+        MDLabel:
+            text: "[ref=Show Password]Show Password[/ref]"
+            markup: True
+            pos_hint: {'center_x':.5,"center_y":.95}
+            on_ref_press:
+                cb.active = False if cb.active == True else True
+                psswrd.password = False if psswrd.password == True else True
+                psswrd.icon_left = "eye" if psswrd.icon_left == "eye-off" else "eye-off"
+    BoxLayout:
+        size_hint: .5, None
+        height: "30dp"
+        pos_hint: {'center_x':.65,"center_y":.3}
+        spacing: "5dp"
+        MDFlatButton:
+            text: "Sign In"
+            font_size: "18dp"
+            md_bg_color: "004D40"
+            on_release: root.get_token()
     Base:
         id: base_screen
 
