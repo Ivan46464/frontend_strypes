@@ -6,7 +6,6 @@ from kivymd.app import MDApp
 from screens.Home import Home
 from screens.Login import Login
 from screens.Register import Register
-from common_func import token_store
 Config.set('graphics', 'fullscreen', 'auto')
 Window.size = (400, 600)
 
