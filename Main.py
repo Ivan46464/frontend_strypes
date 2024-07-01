@@ -5,9 +5,10 @@ from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
 from screens.Home import Home
 from screens.Login import Login
-
+from screens.Register import Register
 Config.set('graphics', 'fullscreen', 'auto')
 Window.size = (400, 600)
+
 
 from kivy.uix.floatlayout import FloatLayout
 
@@ -23,9 +24,11 @@ class Example(MDApp):
         Builder.load_file("Base.kv")
         Builder.load_file("Home.kv")
         Builder.load_file("Login.kv")
+        Builder.load_file("Register.kv")
         sm = ScreenManager()
         sm.add_widget(Home(name="home"))
         sm.add_widget(Login(name="login"))
+        sm.add_widget(Register(name="register"))
         print("Screens added to ScreenManager:", sm.screen_names)
         return sm
 

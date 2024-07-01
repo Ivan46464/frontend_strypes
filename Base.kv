@@ -1,33 +1,30 @@
-<Base>:
-    FloatLayout:
-        id: float_layout
-        orientation: 'vertical'
-        MDBottomAppBar:
-            id: bottom_app_bar_
-            md_bg_color: '#004D40'
-        MDNavigationLayout:
-            MDTopAppBar:
-                id: top_app_bar
-                title: "Hexaton"
-                pos_hint: {"top": 1}
-                left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
-                right_action_items: [["login", lambda x: app.root.get_screen('home').switch_screen('login'),"Login"], ["account-plus", lambda x: root.switch_screen("register"),"Register"]]
-                elevation: 3
-            MDNavigationDrawer:
-                id: nav_drawer
-                radius: (0, 16, 16, 0)
-                md_bg_color: '#00362D'
-                MDNavigationDrawerMenu:
-                    MDNavigationDrawerHeader:
-                        title: "DFantastic4"
-                        text: "Menu"
-                        spacing: "4dp"
-                        padding: "12dp", 0, 0, "56dp"
-                    MDNavigationDrawerLabel:
-                        text: "Home"
-                    DrawerClickableItem:
-                        icon: "home"
-                        text: "Home"
-                        theme_text_color: "Custom"
-                        text_color: '#00FF7D'
-                        on_release: app.root.get_screen('home').switch_screen('home')
+<Base@FloatLayout>:
+    MDBottomAppBar:
+        id: bottom_app_bar_
+        md_bg_color: '#004D40'
+    MDNavigationLayout:
+        MDTopAppBar:
+            id: top_app_bar
+            title: "Home consumption"
+            pos_hint: {"top": 1}
+            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+            right_action_items: [["login", lambda x: app.root.get_screen('home').switch_screen('login'), "Login"],["account-plus", lambda x: app.root.get_screen('home').switch_screen('register'), "Register"]]
+            elevation: 3
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0)
+            md_bg_color: '#00362D'
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerHeader:
+                    title: "Check consumption"
+                    text: "Menu"
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+                MDNavigationDrawerLabel:
+                    text: "Home"
+                DrawerClickableItem:
+                    icon: "home"
+                    text: "Home"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('home')

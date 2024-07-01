@@ -1,0 +1,85 @@
+#:include Base.kv
+
+<Register>:
+    MDLabel:
+        text: "Register"
+        font_size: "24dp"
+        halign: "center"
+        color: '#00FF7D'
+        pos_hint: {"center_y":.8}
+    MDTextField:
+        id: ml
+        hint_text: "Email"
+        icon_left: 'email-outline'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.69}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
+    MDTextField:
+        id: urnm
+        hint_text: "Username"
+        icon_left: 'account'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.59}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
+    MDTextField:
+        id: pswrd
+        hint_text: "Password"
+        password: True
+        icon_left: 'eye-off'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.49}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
+    MDTextField:
+        id: cnfrm
+        hint_text: "Confirm password"
+        password: True
+        icon_left: 'eye-off'
+        font_size: "20dp"
+        size_hint_x: .85
+        pos_hint: {"center_x":.5, "center_y":.39}
+        on_text: self.text = self.text.replace(" ","")
+        write_tab: False
+    BoxLayout:
+        size_hint: .85, None
+        height: "30dp"
+        pos_hint: {'center_x':.95,"center_y":.45}
+        spacing: "5dp"
+        MDCheckbox:
+            id: cbx
+            size_hint: None, None
+            width: "30dp"
+            height: "30dp"
+            pos_hint: {'center_x':.5,"center_y":-2}
+            on_press:
+                pswrd.password = False if pswrd.password == True else True
+                cnfrm.password = False if cnfrm.password == True else True
+                pswrd.icon_left = "eye" if pswrd.icon_left == "eye-off" else "eye-off"
+                cnfrm.icon_left = "eye" if cnfrm.icon_left == "eye-off" else "eye-off"
+        MDLabel:
+            text: "[ref=Show Password]Show Password[/ref]"
+            markup: True
+            pos_hint: {'center_x':.5,"center_y":-2}
+            on_ref_press:
+                cbx.active = False if cbx.active == True else True
+                pswrd.password = False if pswrd.password == True else True
+                cnfrm.password = False if cnfrm.password == True else True
+                pswrd.icon_left = "eye" if pswrd.icon_left == "eye-off" else "eye-off"
+                cnfrm.icon_left = "eye" if cnfrm.icon_left == "eye-off" else "eye-off"
+    BoxLayout:
+        size_hint: .5, None
+        height: "30dp"
+        pos_hint: {'center_x':.65,"center_y":.2}
+        spacing: "5dp"
+        MDFlatButton:
+            text: "Sign Up"
+            font_size: "18dp"
+            md_bg_color: "004D40"
+            on_release:root.register()
+    Base:
+        id: base_screen
