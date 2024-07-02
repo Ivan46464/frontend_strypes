@@ -12,7 +12,21 @@
         size_hint_x: 0.8
         pos_hint: {"center_x": 0.5, "center_y": 0.6}
         opacity: 0
-
+    Label:
+        id: daily_label
+        text: "Prediction: "
+        color: 1, 1, 1, 1  # White color, adjust as needed
+        pos_hint: {"center_x": 0.6, "center_y": 0.35}
+        font_size: "18sp"
+        opacity: 0
+    MDFlatButton:
+        id: daily_prediction_button
+        text: "Prediction"
+        md_bg_color: app.theme_cls.primary_color
+        pos_hint: {"center_x": 0.14, "center_y": 0.35}
+        font_size: "18sp"
+        opacity: 0  # Initially hidden
+        on_release: root.show_prediction()
 
     MDFlatButton:
         id: "daily"
