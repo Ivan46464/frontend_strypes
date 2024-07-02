@@ -1,0 +1,39 @@
+#:include Base.kv
+<LivingRoom>:
+    Widget:
+        size_hint_y: None
+        height: dp(56)  # Adjust height to match the top app bar
+    AsyncImage:
+        id: plot_image
+        source: ''
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: 0.4
+        size_hint_x: 0.8
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        opacity: 0
+
+
+    MDFlatButton:
+        id: "daily"
+        text: "Daily"
+        md_bg_color: app.theme_cls.primary_color
+        pos_hint: {"center_x": 0.25, "center_y": 0.25}
+        font_size: "18sp"
+        on_release: root.show_plot('daily')
+    MDFlatButton:
+        id: "weekly"
+        text: "Weekly"
+        md_bg_color: app.theme_cls.primary_color
+        pos_hint: {"center_x": 0.47, "center_y": 0.25}
+        font_size: "18sp"
+        on_release: root.show_plot('weekly')
+    MDFlatButton:
+        id: "monthly"
+        text: "Monthly"
+        md_bg_color: app.theme_cls.primary_color
+        pos_hint: {"center_x": 0.70, "center_y": 0.25}
+        font_size: "18sp"
+        on_release: root.show_plot('monthly')
+    Base:
+        id: base_screen

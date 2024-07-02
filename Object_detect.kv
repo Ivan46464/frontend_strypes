@@ -1,0 +1,36 @@
+#:include Base.kv
+<Object_detect>:
+    Widget:
+        size_hint_y: None
+        height: dp(56)  # Adjust height to match the top app bar
+    AsyncImage:
+        id: plot_image
+        source: ''
+        allow_stretch: True
+        keep_ratio: True
+        size_hint_y: 0.4
+        size_hint_x: 0.8
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        opacity: 0
+    MDLabel:
+        id: prediction
+        text:""
+        text_color: app.theme_cls.primary_color
+        halign:"center"
+        pos_hint: {"center_x": .5, "center_y": .35}
+    MDFlatButton:
+        id: "image"
+        text:"Choose image"
+        pos_hint: {"center_x": 0.35, "center_y": 0.25}
+        md_bg_color: app.theme_cls.primary_color
+        font_size: "18sp"
+        on_release: root.choose_file()
+    MDFlatButton:
+        id: "submit"
+        text:"Submit"
+        pos_hint: {"center_x": 0.70, "center_y": 0.25}
+        md_bg_color: app.theme_cls.primary_color
+        font_size: "18sp"
+        on_release: root.on_submit()
+    Base:
+        id: base_screen
