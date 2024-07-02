@@ -9,6 +9,9 @@ from common_func import token_store,backend
 
 
 class Login(Screen):
+    def on_enter(self):
+        self.ids.base_screen.ids.nav_drawer.set_state("close")
+        self.ids.base_screen.ids.nav_drawer.opacity = 0
     def show_error(self, widget):
         widget.error = True
         widget.background_color = get_color_from_hex("#FF0000")

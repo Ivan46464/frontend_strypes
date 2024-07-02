@@ -19,3 +19,5 @@ def logout(instance):
             print("Failed to send data. Status code:", response.status_code)
     except Exception as e:
         print("An error occurred:", str(e))
+
+

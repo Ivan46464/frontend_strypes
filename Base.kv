@@ -20,11 +20,39 @@
                     text: "Menu"
                     spacing: "4dp"
                     padding: "12dp", 0, 0, "56dp"
-                MDNavigationDrawerLabel:
-                    text: "Home"
                 DrawerClickableItem:
                     icon: "home"
                     text: "Home"
                     theme_text_color: "Custom"
                     text_color: '#00FF7D'
                     on_release: app.root.get_screen('home').switch_screen('home')
+                DrawerClickableItem:
+                    icon: "power"
+                    text: "Active power"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('global_active_power')
+                DrawerClickableItem:
+                    icon: "fridge"
+                    text: "Kitchen"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('kitchen')
+                DrawerClickableItem:
+                    icon: "washing-machine"
+                    text: "Laundry room"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('laundry_room')
+                DrawerClickableItem:
+                    icon: "sofa"
+                    text: "Living room"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('living_room')
+                DrawerClickableItem:
+                    icon: "smoke-detector-variant"
+                    text: "Object detection"
+                    theme_text_color: "Custom"
+                    text_color: '#00FF7D'
+                    on_release: app.root.get_screen('home').switch_screen('object_detect')

@@ -1,9 +1,10 @@
+import requests
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.navigationdrawer import MDNavigationDrawerLabel, MDNavigationDrawerItem
 from kivy.uix.screenmanager import Screen
-from common_func import logout
+from common_func import logout, backend
 from common_func import token_store
-
+from kivy.clock import Clock
 
 
 class DrawerLabelItem(MDNavigationDrawerLabel):
@@ -11,9 +12,10 @@ class DrawerLabelItem(MDNavigationDrawerLabel):
 class DrawerClickableItem(MDNavigationDrawerItem):
     pass
 class Home(Screen):
-
     def on_enter(self):
         self.update_right_action_items()
+        self.ids.base_screen.ids.nav_drawer.set_state("close")
+        self.ids.base_screen.ids.nav_drawer.opacity = 0
 
     def switch_screen(self, screen_name):
         allowed_screens = ['login', 'register', 'home']
@@ -34,10 +36,12 @@ class Home(Screen):
 
     def update_right_action_items(self):
         if token_store.get("vars")["token"] != "":
-            self.ids.base_layout.ids.top_app_bar.right_action_items = [["logout", lambda x: self.logout(), "Logout"]]
+            self.ids.base_screen.ids.top_app_bar.right_action_items = [["logout", lambda x: self.logout(), "Logout"]]
         else:
-            self.ids.base_layout.ids.top_app_bar.right_action_items = [["login", lambda x: self.switch_screen("login"), "Login"],
+            self.ids.base_screen.ids.top_app_bar.right_action_items = [["login", lambda x: self.switch_screen("login"), "Login"],
                                                        ["account-plus", lambda x: self.switch_screen("register"),
                                                         "Register"]]
+
+
     def logout(self):
         logout(self)
