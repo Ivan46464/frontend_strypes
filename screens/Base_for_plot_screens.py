@@ -76,14 +76,6 @@ class BaseRoom(Screen):
         except Exception as e:
             print(f'Error: {str(e)}')
 
-    def switch_to_daily(self):
-        self.show_plot('daily')
-
-    def switch_to_weekly(self):
-        self.show_plot('weekly')
-
-    def switch_to_monthly(self):
-        self.show_plot('monthly')
 
     def show_dialog(self, title, message):
         dialog = MDDialog(

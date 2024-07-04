@@ -5,7 +5,6 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
-
 from common_func import backend, token_store
 from screens.Global_active_power import Global_active_power
 from screens.Home import Home
@@ -87,3 +86,4 @@ class Example(MDApp):
             print(f'Error: {str(e)}')
 
 Example().run()
+

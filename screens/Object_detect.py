@@ -67,6 +67,7 @@ class Object_detect(Screen):
             self.ids.plot_image.source = self.image_path
             self.ids.plot_image.opacity = 1
             self.filechooser_popup.dismiss()
+            self.ids.prediction.text = ""
 
     @staticmethod
     def get_available_drives():
